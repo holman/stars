@@ -11,6 +11,8 @@ begin
     gem.homepage = "http://github.com/holman/stars"
     gem.authors = ["Zach Holman"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency('httparty')
+    gem.add_dependency('terminal-table')
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
