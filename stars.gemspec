@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Zach Holman"]
-  s.date = %q{2010-03-14}
+  s.date = %q{2010-03-13}
   s.default_executable = %q{stars}
   s.description = %q{Recent favstar faves on your command line.}
   s.email = %q{github.com@zachholman.com}
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "lib/stars/client.rb",
      "lib/stars/favstar.rb",
      "lib/stars/formatter.rb",
+     "stars.gemspec",
      "test/helper.rb",
      "test/test_client.rb",
      "test/test_favstar.rb",
