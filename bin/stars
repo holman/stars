@@ -6,4 +6,5 @@ $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'stars'
 
-Stars::Client.load!
+username = ARGV ? ARGV[0] : nil
+Stars::Client.load!(username)

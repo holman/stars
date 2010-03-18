@@ -36,9 +36,16 @@ Install with `gem install stars`, then do a quick `stars`, fill in your Twitter 
 
 You can tell from the relative dearth of stars that I'm in my *screw followers I'm important so here's what I had for lunch* phase. Don't worry; I'll become a star whore again and tweet pop culture references in relation to presidential penile size soon enough.
 
+You can also specify which user you want to run the query against by passing it in as your one argument. This value is saved for he future, too. For example:
+
+    stars holman        # generates @holman's stars
+    stars               # generates @holman's stars
+    stars goodtutorials # generates @goodtutorials' stars
+    stars               # generates @goodtutorials' stars
+
 ## state of affairs
 
-This was a one-night hack thing; ideally it'd be cool to allow some username switching, maybe retain some "this was read" state, and improve the formatting (if only "★" worked better in a fixed-width environment, AMIRITE?). All in due time. I mean, for you to fork and do it yourself, I mean.
+This was a one-night hack thing; ideally it'd be cool to maybe retain some "this was read" state, and improve the formatting (if only "★" worked better in a fixed-width environment, AMIRITE?). All in due time. I mean, for you to fork and do it yourself, I mean.
 
 ## who
 

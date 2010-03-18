@@ -2,10 +2,16 @@ require 'helper'
 
 class TestClient < Test::Unit::TestCase
 
-  def test_load
+  def test_load_with_username
     mock(Stars::Formatter).new.with_any_args
-    mock(Stars::Client).puts.with_any_args
-    Stars::Client.load!
+    mock(Stars::Client).puts.times(any_times).with_any_args
+    Stars::Client.load!('holman')
+  end
+  
+  def test_load_without_username
+    mock(Stars::Formatter).new.with_any_args
+    mock(Stars::Client).puts.times(any_times).with_any_args
+    Stars::Client.load!(nil)
   end
   
   def test_username_when_exists

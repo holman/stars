@@ -1,8 +1,10 @@
 module Stars
   class Client
   
-    def self.load!
+    def self.load!(new_username=nil)
+      remember_username(new_username) if new_username
       favstar = Stars::Favstar.new(username)
+      puts "\n ★  by @#{username}"
       puts Stars::Formatter.new(favstar.recent)
     end
   
