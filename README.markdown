@@ -11,28 +11,32 @@ So anyway, I spend a lot of time on the command line, and switching over to the 
 
 Install with `gem install stars`, then do a quick `stars`, fill in your Twitter username, and let it do its sultry magic. This is me lately:
 
-    +---------+-------------+--------------------------------------------------------+
-    | Stars   | Time        | Your Funnies                                           |
-    +---------+-------------+--------------------------------------------------------+
-    | * *     | 11 days ago | I have a severe sore throat.  Or, if I said that ou... |
-    | * *     | 11 days ago | Way too many Scientology ads on Muni buses.  It wor... |
-    | *       | 11 days ago | Napping didn't fix this cold; I feel a bit worse. M... |
-    | *       | 10 days ago | God I leave the room for one minute and the girls o... |
-    | *       | 10 days ago | Man, Avatar really fucked Up.                          |
-    | *       | 9 days ago  | I'd play out here, but the west coast is all about ... |
-    | *       | 9 days ago  | I just want to know who moved my Maps app to my iPh... |
-    | * *     | 9 days ago  | just about finished my thesis on generating free en... |
-    | * * *   | 7 days ago  | You change your Facebook pic, that syncs to my iPho... |
-    | *       | 6 days ago  | Going to totally refork and rework my dotfiles soon... |
-    | *       | 6 days ago  | Oh hey, a year or so of my beer consumption: http:/... |
-    | * *     | 5 days ago  | In another life I want to be a pop star heartthrob ... |
-    | * * *   | 5 days ago  | I pre-ordered an iPad, checked into lunch, and now ... |
-    | * * * * | 3 days ago  | I wouldn't say I'm "saving daylight" as much as I'm... |
-    | * x 13  | 3 days ago  | So for the seven of us that are both nerdy *and* va... |
-    | * * *   | 2 days ago  | Just got my third free replacement earbuds from the... |
-    | *       | 2 days ago  | Oh, they're doing a MacGruber movie. This makes sen... |
-    | *       | 2 days ago  | At the MySQL + Rails combined meetup. I don't want ... |
-    +---------+-------------+--------------------------------------------------------+
+     ★  by @holman
+    +----+-----------+--------------+--------------------------------------------------------+
+    | #  | Stars     | Time         | Your Funnies                                           |
+    +----+-----------+--------------+--------------------------------------------------------+
+    | 1  | *         | 12 hours ago | Today's GitHub todo list: put cupholders in the for... |
+    | 2  | * * *     | 1 day ago    | This bus is going so slowly that my AT&T 3G coverag... |
+    | 3  | * * * * * | 2 days ago   | Every now and then I bust out that I'm from North D... |
+    | 4  | * * *     | 3 days ago   | Was told that "y'alls be stupid" by an adamant stre... |
+    | 5  | * *       | 4 days ago   | Now that we've fixed healthcare forever, who wants ... |
+    | 6  | * * * *   | 4 days ago   | Just wikipedia'd "Justin Bieber" and I still don't ... |
+    | 7  | * * * *   | 5 days ago   | Look. I'm not saying David Copperfield is a little ... |
+    | 8  | *         | 6 days ago   | SFO.  Guys, we're at TERROR ALERT ORANGE. I don't t... |
+    | 9  | *         | 7 days ago   | Dammit. 2012 looks like garbage so far, but if a mo... |
+    | 10 | *         | 10 days ago  | At the MySQL + Rails combined meetup. I don't want ... |
+    | 11 | *         | 10 days ago  | Oh, they're doing a MacGruber movie. This makes sen... |
+    | 12 | * * *     | 10 days ago  | Just got my third free replacement earbuds from the... |
+    | 13 | * x 13    | 11 days ago  | So for the seven of us that are both nerdy *and* va... |
+    | 14 | * * * * * | 11 days ago  | I wouldn't say I'm "saving daylight" as much as I'm... |
+    | 15 | * * *     | 13 days ago  | I pre-ordered an iPad, checked into lunch, and now ... |
+    | 16 | * *       | 13 days ago  | In another life I want to be a pop star heartthrob ... |
+    | 17 | *         | 14 days ago  | Oh hey, a year or so of my beer consumption: http:/... |
+    | 18 | *         | 14 days ago  | Going to totally refork and rework my dotfiles soon... |
+    | 19 | * * *     | 15 days ago  | You change your Facebook pic, that syncs to my iPho... |
+    | 20 | * *       | 17 days ago  | just about finished my thesis on generating free en... |
+    +----+-----------+--------------+--------------------------------------------------------+
+
 
 You can tell from the relative dearth of stars that I'm in my *screw followers I'm important so here's what I had for lunch* phase. Don't worry; I'll become a star whore again and tweet pop culture references in relation to presidential penile size soon enough.
 
@@ -43,9 +47,26 @@ You can also specify which user you want to run the query against by passing it 
     stars goodtutorials # generates @goodtutorials' stars
     stars               # generates @goodtutorials' stars
 
+You can also get some knowledge dropped all over your face about a specific toot:
+
+	Type the number of the toot that you want to learn about
+	  (or hit return to view all again, you ego-maniac)   >>
+	14
+
+	  5 stars: I wouldn't say I'm "saving daylight" as much as
+	    I'm sequestering it in a small room underneath my stairs so
+	    its screams can't be heard.
+    
+	    ★  twilighteyes08
+	    ★  itsjustEm
+	    ★  aklw
+	    ★  shariv67
+	    ★  IsJonas
+
+
 ## state of affairs
 
-This was a one-night hack thing; ideally it'd be cool to maybe retain some "this was read" state, and improve the formatting (if only "★" worked better in a fixed-width environment, AMIRITE?). All in due time. I mean, for you to fork and do it yourself, I mean.
+Fork this bad boy and shape it as you see fit. I just randomly built some shit that I might like; maybe that process will work for you, too. Send me a pull request if you ship something awesome. Reminder: something is never awesome without tests.
 
 ## who
 
