@@ -31,7 +31,7 @@ module Stars
       if number > 5
         "* x #{number}"
       else
-        number.times.collect{'*'}.join(' ')
+        (1..number).collect{'*'}.join(' ')
       end
     end
   
