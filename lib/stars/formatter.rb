@@ -15,9 +15,9 @@ module Stars
       truncated + (truncated.size == text.size ? '' : '...')
     end
   
-    def format(tweet)
+    def format(i, tweet)
       stars,text = split_stars(tweet['title'])
-      [stars,relative_time(tweet['pubDate']),text]
+      [i,stars,relative_time(tweet['pubDate']),text]
     end
   
     def split_stars(text)
@@ -40,8 +40,8 @@ module Stars
     end
   
     def to_s
-      tweets = @tweets.reverse.collect{|tweet| format tweet}
-      table(['Stars','Time','Your Funnies'], *tweets).render
+      tweets = @tweets.collect_with_index{|tweet,i| format(i+1,tweet)}
+      table(['#','Stars','Time','Your Funnies'], *tweets).render
     end
   
     def relative_time(time)

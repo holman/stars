@@ -3,14 +3,18 @@ require 'helper'
 class TestClient < Test::Unit::TestCase
 
   def test_load_with_username
-    mock(Stars::Formatter).new.with_any_args
+    mock(Stars::Client).system.with('clear').returns('')
+    mock(Stars::Formatter).new.times(any_times).with_any_args
     mock(Stars::Client).puts.times(any_times).with_any_args
+    mock(Stars::Client).gets.times(any_times).with_any_args.returns('q')
     Stars::Client.load!('holman')
   end
   
   def test_load_without_username
-    mock(Stars::Formatter).new.with_any_args
+    mock(Stars::Client).system.with('clear').returns('')
+    mock(Stars::Formatter).new.times(any_times).with_any_args
     mock(Stars::Client).puts.times(any_times).with_any_args
+    mock(Stars::Client).gets.times(any_times).with_any_args.returns('q')
     Stars::Client.load!(nil)
   end
   

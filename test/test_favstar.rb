@@ -3,18 +3,14 @@ require 'helper'
 class TestFavstar < Test::Unit::TestCase
 
   def setup
-    @favstar = Stars::Favstar.new('holman')
-  end
-
-  def test_sets_username
-    assert_equal @favstar.username, 'holman'
+    @favstar = Stars::Favstar.new
   end
   
   def test_parties_hard
-    mock(Stars::Favstar).get('/users/holman/rss') { 
+    mock(Stars::Favstar).get('/users/holman/rss', :format => :xml) { 
       {'rss' => {'channel' => {'item' => 'etc'} } }
     }
-    @favstar.recent
+    @favstar.recent('holman')
   end
 
 end

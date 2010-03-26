@@ -19,9 +19,9 @@ class TestFormatter < Test::Unit::TestCase
   end
   
   def test_format
-    format = @formatter.format(favstar_tweet_hash[0])
-    assert_equal format.size, 3
-    assert_equal format[0], '* *'
+    format = @formatter.format(1,favstar_tweet_hash[0])
+    assert_equal format.size, 4
+    assert_equal 1,format[0], '* *'
   end
 
   def test_split_stars
