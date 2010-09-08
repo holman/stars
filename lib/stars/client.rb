@@ -9,7 +9,7 @@ module Stars
     
     def self.display
       system 'clear'
-      puts "\n ★  by @#{username}"
+      puts "\n ★ by @#{username}"
       puts Stars::Formatter.new(@recent)
       select_star
     end
@@ -21,10 +21,10 @@ module Stars
     def self.prompt_for_username
       puts ""
       puts ""
-      puts " ★   stars."
+      puts " ★ stars"
       puts ""
       puts "Type your Twitter username:"
-      remember_username(gets.chomp)
+      remember_username(STDIN.gets.chomp)
     end
   
     def self.remember_username(username)
@@ -41,7 +41,7 @@ module Stars
       while true
         puts "Type the number of the toot that you want to learn about"
         puts "  (or hit return to view all again, you ego-maniac)   >>"
-        selection = gets.chomp
+        selection = STDIN.gets.chomp
         break if ['','q','quit','exit','fuckthis'].include?(selection.downcase)
         show_selection(selection)
       end
