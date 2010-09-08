@@ -9,7 +9,7 @@ module Stars
     
     def self.display
       system 'clear'
-      puts "\n * by @#{username}"
+      puts "\n  ★ by @#{username}"
       puts Stars::Formatter.new(@recent)
       select_star
     end
@@ -21,7 +21,7 @@ module Stars
     def self.prompt_for_username
       puts ""
       puts ""
-      puts " *  stars"
+      puts "  ★* stars"
       puts ""
       puts "Type your Twitter username:"
       remember_username(STDIN.gets.chomp)
