@@ -6,7 +6,8 @@ class TestClient < Test::Unit::TestCase
     mock(Stars::Client).system.with('clear').returns('')
     mock(Stars::Formatter).new.times(any_times).with_any_args
     mock(Stars::Client).puts.times(any_times).with_any_args
-    mock(Stars::Client).gets.times(any_times).with_any_args.returns('q')
+    mock(Stars::Client).print.times(any_times).with_any_args
+    mock(Stars::Client).input.times(any_times).with_any_args.returns('q')
     Stars::Client.load!('holman')
   end
   
@@ -14,7 +15,8 @@ class TestClient < Test::Unit::TestCase
     mock(Stars::Client).system.with('clear').returns('')
     mock(Stars::Formatter).new.times(any_times).with_any_args
     mock(Stars::Client).puts.times(any_times).with_any_args
-    mock(Stars::Client).gets.times(any_times).with_any_args.returns('q')
+    mock(Stars::Client).print.times(any_times).with_any_args
+    mock(Stars::Client).input.times(any_times).with_any_args.returns('q')
     Stars::Client.load!(nil)
   end
   

@@ -13,6 +13,10 @@ module Stars
       puts Stars::Formatter.new(@recent)
       select_star
     end
+
+    def self.input
+      STDIN.gets
+    end
   
     def self.username
       File.exists?(config_path) ? File.read(config_path) : prompt_for_username
@@ -24,7 +28,7 @@ module Stars
       puts " ★ stars"
       puts ""
       puts "Type your Twitter username:"
-      remember_username(STDIN.gets.chomp)
+      remember_username(self.input.chomp)
     end
   
     def self.remember_username(username)
@@ -41,7 +45,7 @@ module Stars
       while true
         puts "Type the number of the toot that you want to learn about"
         print "  (or hit return to view all again, you ego-maniac)   >> "
-        selection = STDIN.gets.chomp
+        selection = self.input.chomp
         break if ['','q','quit','exit','fuckthis'].include?(selection.downcase)
         show_selection(selection)
       end
