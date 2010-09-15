@@ -40,7 +40,7 @@ module Stars
       selection = ''
       while true
         puts "Type the number of the toot that you want to learn about"
-        puts "  (or hit return to view all again, you ego-maniac)   >>"
+        print "  (or hit return to view all again, you ego-maniac)   >> "
         selection = STDIN.gets.chomp
         break if ['','q','quit','exit','fuckthis'].include?(selection.downcase)
         show_selection(selection)
