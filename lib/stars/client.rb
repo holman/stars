@@ -9,7 +9,7 @@ module Stars
     
     def self.display
       system 'clear'
-      puts "\n ★ by @#{username}"
+      puts "\n ★  by @#{username}"
       puts Stars::Formatter.new(@recent)
       select_star
     end
