@@ -55,10 +55,17 @@ module Stars
     end
     
     def self.show_selection(id)
-      puts ''
-      puts wrap_text('  ' + @recent[id.to_i - 1]['title'], 60)
-      puts parse_who(@recent[id.to_i - 1]['guid'])
-      puts ''
+      id = id.to_i - 1
+      if @recent[id]
+        puts ''
+        puts wrap_text('  ' + @recent[id]['title'], 60)
+        puts parse_who(@recent[id]['guid'])
+        puts ''
+      else
+        puts ''
+        puts 'Oops, no such toot.'
+        puts ''
+      end
     end
     
     def self.parse_who(url)
