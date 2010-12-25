@@ -16,9 +16,18 @@ module Stars
     def show(url)
       # hardcode 17 to strip favstar domain for now
       html = self.class.get(url[17..200], :format => :html)
+
+      output = ''
+
       Nokogiri::HTML(html).css('div[id^="faved_by_others"] img').collect do |img|
-        "    ★  #{img.attributes['alt'].value}"
+        output << "    ★   #{img.attributes['alt'].value}\n"
       end
+
+      Nokogiri::HTML(html).css('div[id^="rt_by_others"] img').collect do |img|
+        output << "    RT  #{img.attributes['alt'].value}\n"
+      end
+
+      output
     end
   end
 end

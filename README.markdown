@@ -57,11 +57,12 @@ You can also get some knowledge dropped all over your face about a specific toot
 	    I'm sequestering it in a small room underneath my stairs so
 	    its screams can't be heard.
     
-	    ★  twilighteyes08
-	    ★  itsjustEm
-	    ★  aklw
-	    ★  shariv67
-	    ★  IsJonas
+	    ★   twilighteyes08
+	    ★   itsjustEm
+	    ★   aklw
+	    ★   shariv67
+	    ★   IsJonas
+	    RT  kneath
 
 
 ## state of affairs
