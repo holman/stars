@@ -1,0 +1,26 @@
+PATH
+  remote: .
+  specs:
+    stars (0.5.0)
+      httparty
+      keep (~> 0.0.3)
+      nokogiri
+      terminal-table
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    crack (0.1.8)
+    httparty (0.7.6)
+      crack (= 0.1.8)
+    keep (0.0.3)
+    mocha (0.9.12)
+    nokogiri (1.4.4)
+    terminal-table (1.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mocha (~> 0.9.9)
+  stars!

@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
- 
 require 'rubygems'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'stars'
 
-username = ARGV ? ARGV[0] : nil
-Stars::Client.load!(username)
+Stars::Client.new(ARGV)

@@ -1,81 +1,98 @@
-# encoding: utf-8
-
+# Client is our interface between user and terminal prompt. This does all of
+# the heavy-lifting for formatting.
+#
 module Stars
   class Client
-
-    def self.load!(new_username=nil)
-      remember_username(new_username) if new_username
-      @recent = Stars::Favstar.new.recent(username)
-      display
-    end
     
-    def self.display
-      system 'clear'
-      puts "\n ★  by @#{username}"
-      puts Stars::Formatter.new(@recent)
-      select_star
+    attr_reader :posts
+    attr_writer :posts
+    
+    # Initializes a new Client.
+    #
+    # Returns nothing.
+    def initialize(cmd)
+      Stars.config.prompt_for_username(cmd[1]) if cmd[0] == 'add'
+
+      system "clear"
+      puts "★  stars"
+
+      display(cmd[0])
+      star_loop
     end
 
-    def self.input
-      STDIN.gets
-    end
-  
-    def self.username
-      File.exists?(config_path) ? File.read(config_path) : prompt_for_username
-    end
-  
-    def self.prompt_for_username
-      puts ""
-      puts ""
-      puts " ★ stars"
-      puts ""
-      puts "Type your Twitter username:"
-      remember_username(self.input.chomp)
-    end
-  
-    def self.remember_username(username)
-      File.open(config_path, 'w') {|f| f.write(username) }
-      username
-    end
-  
-    def self.config_path
-      File.join(ENV['HOME'], '.stars')
-    end
-    
-    def self.select_star
+    # Run a loop FOREVER until we kill it or we make a selection.
+    #
+    # Returns nothing.
+    def star_loop
       selection = ''
       while true
-        puts "Type the number of the toot that you want to learn about"
+        puts "Type the number of the post that you want to learn about"
         print "  (or hit return to view all again, you ego-maniac)   >> "
-        selection = self.input.chomp
+        selection = $stdin.gets.chomp
         break if ['','q','quit','exit','fuckthis'].include?(selection.downcase)
-        show_selection(selection)
+        show(selection)
       end
       display if selection == ''
     end
-    
-    def self.show_selection(id)
-      id = id.to_i - 1
-      if @recent[id]
-        puts ''
-        puts wrap_text('  ' + @recent[id]['title'], 60)
-        puts parse_who(@recent[id]['guid'])
-        puts ''
+
+    # Displays all of the star tables and information we have.
+    #
+    # Returns nothing.
+    def display(service=nil)
+      Stars.config.prompt_for_service if Stars.installed_services.empty?
+
+      if service
+        posts = service.constantize.posts
       else
-        puts ''
-        puts 'Oops, no such toot.'
-        puts ''
+        posts = Stars.installed_services.collect{ |service| 
+                                  service.constantize.posts }.flatten
       end
+      @posts = Post.filter(posts)
+      puts print_posts(@posts)
     end
-    
-    def self.parse_who(url)
-      Stars::Favstar.new.show(url)
+
+    # Show more information about a particular post.
+    #
+    # id - the Integer id entered by the user, which we map to a Post
+    #
+    # Returns nothing (although does delegate to the Post to show #more).
+    def show(id)
+      post = @posts[id.to_i-1]
+      return puts("\nMake a valid selection. Pretty please?\n") unless post
+      puts post.more
+      display
     end
-    
-    def self.wrap_text(txt, col = 80)
-      txt.gsub(/(.{1,#{col}})( +|$\n?)|(.{1,#{col}})/,
-        "\\1\\3\n    ") 
+
+    # This does the actual printing of posts.
+    #
+    # posts - an Array of Post objects
+    #
+    # It loops through the Array of posts and sends them to `terminal-table`.
+    def print_posts(posts)
+      table do |t|
+        t.headings = headings
+        posts.each_with_index do |post,i|
+          t << [
+                { :value => i+1, :alignment => :right },
+                post.service.capitalize,
+                { :value => post.stars_count, :alignment => :center },
+                post.short_name
+               ]
+        end
+      end      
     end
-  
+
+    # The headings used in the resulting printed table.
+    #
+    # This returns an Array of headings.
+    def headings
+      [ 
+        '',
+        'Service',
+        'Stars',
+        {:value => 'The Hotness', :alignment => :center } 
+      ]
+    end
+
   end
 end

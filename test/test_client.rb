@@ -1,43 +1,26 @@
 require 'helper'
 
+module Kernel
+  def system(s) ; end
+  def puts(s)   ; end
+end
+
 class TestClient < Test::Unit::TestCase
 
-  def test_load_with_username
-    mock(Stars::Client).system.with('clear').returns('')
-    mock(Stars::Formatter).new.times(any_times).with_any_args
-    mock(Stars::Client).puts.times(any_times).with_any_args
-    mock(Stars::Client).print.times(any_times).with_any_args
-    mock(Stars::Client).input.times(any_times).with_any_args.returns('q')
-    Stars::Client.load!('holman')
+  def setup
+    global_setup
   end
-  
-  def test_load_without_username
-    mock(Stars::Client).system.with('clear').returns('')
-    mock(Stars::Formatter).new.times(any_times).with_any_args
-    mock(Stars::Client).puts.times(any_times).with_any_args
-    mock(Stars::Client).print.times(any_times).with_any_args
-    mock(Stars::Client).input.times(any_times).with_any_args.returns('q')
-    Stars::Client.load!(nil)
+
+  def test_add_service
+    Stars.config.expects(:prompt_for_username).with('favstar').once
+    Stars::Client.any_instance.stubs(:display)
+    Stars::Client.any_instance.stubs(:star_loop)
+    Stars::Client.new(%w(add favstar))
   end
-  
-  def test_username_when_exists
-    mock(File).exists?.with_any_args.returns(true)
-    mock(File).read.with_any_args
-    Stars::Client.username
+
+  def test_show_only_one_service
+    Stars::Favstar.expects(:posts).returns([])
+    Stars::Client.any_instance.stubs(:star_loop)
+    Stars::Client.new(['favstar'])
   end
-  
-  def test_username_when_nonexistant
-    mock(File).exists?.with_any_args.returns(false)
-    mock(Stars::Client).prompt_for_username
-    Stars::Client.username
-  end
-  
-  def test_write_home_config
-    assert_equal Stars::Client.remember_username('holman'), 'holman'
-  end
-  
-  def test_config_path
-    assert Stars::Client.config_path.index('.stars')
-  end
-  
 end
