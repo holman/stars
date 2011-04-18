@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #{"title"=>"6 stars: Why can't we hardware-accelerate animated gifs? I thought this was the future.", "pubDate"=>"Wed, 16 Feb 2011 05:56:32 +0000", "guid"=>"http://favstar.fm/users/holman/status/37752168152825856?6", "description"=>"Has been faved by 6 people<br /><br /><a href=\"http://favstar.fm/users/holman/status/37752168152825856\">This tweet</a>&nbsp;&nbsp;&nbsp;<a href=\"http://favstar.fm/users/holman/recent\">All Recent</a>", "link"=>"http://favstar.fm/users/holman/status/37752168152825856"}
 
 module Stars
