@@ -41,7 +41,7 @@ module Stars
     def display(service=nil)
       Stars.config.prompt_for_service if Stars.installed_services.empty?
 
-      if service
+      if service && service != 'add'
         posts = service.constantize.posts
       else
         posts = Stars.installed_services.collect{ |service| 
