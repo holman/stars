@@ -19,7 +19,7 @@ require 'stars/services/convore'
 require 'stars/services/favstar'
 
 module Stars
-  VERSION = '0.5.0'
+  VERSION = '0.5.1'
 
   def self.config
     @config ||= Config.new
