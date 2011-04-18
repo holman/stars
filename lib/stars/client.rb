@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Client is our interface between user and terminal prompt. This does all of
 # the heavy-lifting for formatting.
 #
