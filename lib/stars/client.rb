@@ -44,7 +44,12 @@ module Stars
       Stars.config.prompt_for_service if Stars.installed_services.empty?
 
       if service && service != 'add'
-        posts = service.constantize.posts
+        if Stars.services.include? service
+          posts = service.constantize.posts
+        else
+          puts "Service \"#{service}\" is unknown."
+          exit
+        end
       else
         posts = Stars.installed_services.collect{ |service| 
                                   service.constantize.posts }.flatten
